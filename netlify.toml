@@ -1,0 +1,23 @@
+[build]
+  publish="dist"
+  functions="netlify/functions"
+[functions]
+  node_bundler="esbuild"
+[[redirects]]
+  from="/api/*"
+  to="/.netlify/functions/:splat"
+  status=200
+[[redirects]]
+  from="/*"
+  to="/index.html"
+  status=200
+[functions."scheduled-breakfast"]
+  schedule="0 6 * * *"
+[functions."scheduled-lunch"]
+  schedule="0 10 * * *"
+[functions."scheduled-dinner"]
+  schedule="0 14 * * *"
+[functions."scheduled-baking"]
+  schedule="0 18 * * *"
+[functions."history-cleanup"]
+  schedule="0 2 * * *"
